@@ -1,0 +1,2 @@
+# gdThumb
+Piwigo plugin
