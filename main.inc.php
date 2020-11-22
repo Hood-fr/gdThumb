@@ -1,7 +1,7 @@
 <?php
 /*
 Plugin Name: gdThumb
-Version: 1.0.20
+Version: 1.0.22
 Description: Apply Masonry style to album or image thumbs
 Plugin URI: http://piwigo.org/ext/extension_view.php?eid=771
 Author: Serge Dosyukov 
@@ -18,7 +18,7 @@ if (mobile_theme()) return;
 // +-----------------------------------------------------------------------+
 // | Plugin constants                                               |
 // +-----------------------------------------------------------------------+
-define('GDTHUMB_VERSION', '1.0.20');
+define('GDTHUMB_VERSION', '1.0.22');
 define('GDTHUMB_ID',      basename(dirname(__FILE__)));
 define('GDTHUMB_PATH' ,   PHPWG_PLUGINS_PATH . GDTHUMB_ID . '/');
 if (!defined('GDTHEME_PATH')):

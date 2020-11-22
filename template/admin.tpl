@@ -95,7 +95,6 @@
   <input type="button" name="cachebuild" id="cachebuild" value="{'Pre-cache thumbnails'|@translate}" title="{'Finds images that have not been cached and creates the cached version.'|@translate}" onclick="jQuery.gdThumb_start();">
 </p>
 </form>
-
 <fieldset id="generate_cache">
   <legend>{'Pre-cache thumbnails'|@translate}</legend>
   <p class="buttons">

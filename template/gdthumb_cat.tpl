@@ -20,9 +20,9 @@
         {if $GDThumb.thumb_mode_album == "overlay-ex"}
         <span class="thumbInfo">
           <span class="item-num">{$cat.count_images}</span>
-          <span class="glyphicon glyphicon-th-large grid-gallery-icon"></span>
+          <span class="fas fa-th-large grid-gallery-icon"></span>
           {if !empty($cat.icon_ts)}
-          <span class="new-thumb glyphicon glyphicon-asterisk" title="{$cat.icon_ts.TITLE}" alt="(!)"></span>
+          <span class="new-thumb fas fa-asterisk" title="{$cat.icon_ts.TITLE}" alt="(!)"></span>
           {/if}
         </span>
         {elseif $GDThumb.thumb_metamode !== "hide"}

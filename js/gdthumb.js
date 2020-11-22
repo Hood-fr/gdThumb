@@ -254,9 +254,30 @@ var GDThumb = {
       last_height = GDThumb.max_height;
     }
 
-    // Last line does not need to be cropped
-    for (j=0;j<thumb_process.length;j++) {
-      GDThumb.resize(jQuery('ul.thumbnails img.thumbnail').eq(thumb_process[j].index), thumb_process[j].real_width, thumb_process[j].real_height, thumb_process[j].width, last_height, false);
+    // Crop last line only if we have more than one line
+    for (j = 0; j < thumb_process.length; j++) {
+
+      // we have only one line, i.e. the first line is the one and only line and therefor the last line too
+      if (line == 1) {
+        GDThumb.resize(jQuery('ul.thumbnails img.thumbnail').eq(thumb_process[j].index), thumb_process[j].real_width, thumb_process[j].real_height, thumb_process[j].width, last_height, false);
+      }
+      // we have more than one line
+      else {
+        if ((GDThumb.method == 'square') || (GDThumb.method == 'slide')) {
+          new_width = GDThumb.max_height;
+          new_height = GDThumb.max_height;
+        }
+        else {
+          new_width = (thumb_process[j].width + round_rest) / ratio;
+          round_rest = new_width - Math.round(new_width);
+          new_width = Math.round(new_width);
+        }
+
+        GDThumb.resize(jQuery('ul.thumbnails img.thumbnail').eq(thumb_process[j].index), thumb_process[j].real_width, thumb_process[j].real_height, new_width, new_height, false);
+        last_height = Math.min(last_height, new_height);
+
+        width_count += new_width + GDThumb.margin;
+      }
     }
 
     if (main_width != jQuery('ul.thumbnails').width()) {

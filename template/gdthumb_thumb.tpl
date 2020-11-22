@@ -31,12 +31,12 @@
     {if $GDThumb.thumb_mode_album == "overlay-ex"}
       <span class="thumbInfo">
         <span class="hit-num">{$thumbnail.hit}</span>
-        <span class="glyphicon {if $media_type=="video"}glyphicon-film{elseif $media_type=="music"}glyphicon-music{elseif $media_type=="doc"}glyphicon-file{elseif $media_type=="pdf"}glyphicon-book{else}glyphicon-picture{/if}"></span>
+        <span class="fas {if $media_type=="video"}fa-file-video{elseif $media_type=="music"}fa-file-audio{elseif $media_type=="doc"}fa-file-word{elseif $media_type=="pdf"}fa-file-pdf{else}fa-image{/if}"></span>
         {if !empty($thumbnail.icon_ts)}
-        <span class="new-thumb glyphicon glyphicon-asterisk" title="{$thumbnail.icon_ts.TITLE}" alt="(!)"></span>
+        <span class="new-thumb fas fa-asterisk" title="{$thumbnail.icon_ts.TITLE}" alt="(!)"></span>
         {/if}
         {if $thumbnail.rating_score > 0}
-        <span class="rank-num"><i class="glyphicon glyphicon-star"></i>{$thumbnail.rating_score|string_format:"%d"}</span>
+        <span class="rank-num"><i class="fas fa-star"></i>{$thumbnail.rating_score|string_format:"%d"}</span>
         {/if}
       </span>
     {elseif $GDThumb.thumb_metamode !== "hide"}
