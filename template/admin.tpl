@@ -18,8 +18,8 @@
   <ul>
     <li>
       <select id="direction" name="direction" disabled>
-        <option {if $DIRECTION == 'horizontal'}selected="selected"{/if} value="horizontal">{'Horizontal (Default)'|@translate}</option>
-        {* <option {if $DIRECTION == 'vertical'}selected="selected"{/if} value="vertical">{'Vertical'|@translate}</option> *}
+        <option {if isset($DIRECTION) and ($DIRECTION == 'horizontal')}selected="selected"{/if} value="horizontal">{'Horizontal (Default)'|@translate}</option>
+        {* <option {if isset($DIRECTION) and ($DIRECTION == 'vertical')}selected="selected"{/if} value="vertical">{'Vertical'|@translate}</option> *}
       </select>
       <label for="direction">{'Masonry Type'|@translate}</label>
     </li>
@@ -88,7 +88,7 @@
   </ul>
 </fieldset>
 
-<p>
+<p class="admin_buttons">
   <input type="hidden" name="pwg_token" value="{$PWG_TOKEN}">
   <input type="submit" name="submit" value="{'Submit'|@translate}">
   <input type="button" name="cachedelete" id="cachedelete" value="{'Purge thumbnails cache'|@translate}" title="{'Delete images in GDThumb cache.'|@translate}" onclick="return confirm('{'Are you sure?'|@translate}');">

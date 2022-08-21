@@ -1,11 +1,12 @@
 <?php
 /*
 Plugin Name: gdThumb
-Version: 1.0.22
+Version: 1.0.24
 Description: Apply Masonry style to album or image thumbs
 Plugin URI: http://piwigo.org/ext/extension_view.php?eid=771
 Author: Serge Dosyukov 
 Author URI: http://blog.dragonsoft.us
+Has Settings: true
 */
 // Original work by P@t - GTHumb+
 
@@ -18,7 +19,7 @@ if (mobile_theme()) return;
 // +-----------------------------------------------------------------------+
 // | Plugin constants                                               |
 // +-----------------------------------------------------------------------+
-define('GDTHUMB_VERSION', '1.0.22');
+define('GDTHUMB_VERSION', '1.0.24');
 define('GDTHUMB_ID',      basename(dirname(__FILE__)));
 define('GDTHUMB_PATH' ,   PHPWG_PLUGINS_PATH . GDTHUMB_ID . '/');
 if (!defined('GDTHEME_PATH')):
@@ -156,7 +157,7 @@ function GDThumb_process_category($tpl_vars) {
   return $tpl_vars;
 }
 
-function GDThumb_prefilter($content, $smarty) {
+function GDThumb_prefilter($content) {
   $pattern = '#\<div.*?id\="thumbnails".*?\>\{\$THUMBNAILS\}\</div\>#';
   $replacement = '<ul id="thumbnails">{$THUMBNAILS}</ul>';
 
