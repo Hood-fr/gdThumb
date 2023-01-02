@@ -28,13 +28,17 @@ var GDThumb = {
   },
 
   init: function() {
-    if (GDThumb.do_merge) { GDThumb.merge(); }
+    var mainlists = jQuery('ul.thumbnails');
+    if(typeof mainlists !== 'undefined') {
+      if (GDThumb.do_merge) { GDThumb.merge(); }
 
-    GDThumb.build();
-    jQuery(window).bind('RVTS_loaded', GDThumb.build);
-    jQuery('ul.thumbnails').resize(GDThumb.process);
-    jQuery("ul.thumbnails .thumbLegend.overlay").click( function() { window.location.href = $(this).parent().find('a').attr('href'); });
-    jQuery("ul.thumbnails .thumbLegend.overlay-ex").click( function() { window.location.href = $(this).parent().find('a').attr('href'); });
+      GDThumb.build();
+      jQuery(window).bind('RVTS_loaded', GDThumb.build);
+
+      mainlists.resize(GDThumb.process);
+      jQuery("ul.thumbnails .thumbLegend.overlay").click( function() { window.location.href = $(this).parent().find('a').attr('href'); });
+      jQuery("ul.thumbnails .thumbLegend.overlay-ex").click( function() { window.location.href = $(this).parent().find('a').attr('href'); });
+    }
   },
 
   // Merge categories and picture lists
@@ -54,7 +58,8 @@ var GDThumb = {
   // Build thumb metadata
   build: function () {
 
-    if ((GDThumb.method == 'square') && (GDThumb.big_thumb != null) && ((GDThumb.big_thumb.height != GDThumb.big_thumb.width) || (GDThumb.big_thumb.height < GDThumb.max_height))){
+    if ((GDThumb.method == 'square') && (GDThumb.big_thumb != null) 
+        && ((GDThumb.big_thumb.height != GDThumb.big_thumb.width) || (GDThumb.big_thumb.height < GDThumb.max_height))){
       var main_width = jQuery('ul.thumbnails').width();
       var max_col_count = Math.floor(main_width / GDThumb.max_height);
       var thumb_width   = Math.floor(main_width / max_col_count) - GDThumb.margin;

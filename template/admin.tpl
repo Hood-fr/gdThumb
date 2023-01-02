@@ -36,10 +36,10 @@
     <li><input id="margin" type="text" size="2" maxlength="3" name="margin" value="{$MARGIN}"><label for="margin">{'Margin between thumbnails'|@translate}&nbsp;px</label></li>
     <li><input id="nb_image_page" type="text" size="2" maxlength="3" name="nb_image_page" value="{$NB_IMAGE_PAGE}"><label for="nb_image_page">{'Number of photos per page'|@translate}</label></li>
 
-    <li><label><span class="graphicalCheckbox {if $BIG_THUMB}icon-check{else}icon-check-empty{/if}">&nbsp;</span><input name="big_thumb" id="big_thumb" type="checkbox" value="1" {if $BIG_THUMB}checked="checked"{/if}>{'Double the size of the first thumbnail'|@translate}</label></li>
-    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><span class="graphicalCheckbox {if $BIG_THUMB_NOINPW}icon-check{else}icon-check-empty{/if}">&nbsp;</span><input name="big_thumb_noinpw" id="big_thumb_noinpw" type="checkbox" value="1" {if $BIG_THUMB_NOINPW}checked="checked"{/if}>{'Block for Panoramic Photo Page'|@translate} (x2.2+)</label></li>
-    <li><label><span class="graphicalCheckbox {if $CACHE_BIG_THUMB}icon-check{else}icon-check-empty{/if}">&nbsp;</span><input name="cache_big_thumb" id="cache_big_thumb" type="checkbox" value="1" {if $CACHE_BIG_THUMB}checked="checked"{/if}>{'Cache the big thumbnails (recommended)'|@translate}</label></li>
-    <li><label><span class="graphicalCheckbox {if $THUMB_ANIMATE}icon-check{else}icon-check-empty{/if}">&nbsp;</span><input name="thumb_animate" id="thumb_animate" type="checkbox" value="1" {if $THUMB_ANIMATE}checked="checked"{/if}>{'Animate thumbnail on hover'|@translate}</label></li>
+    <li><label><i class="gd-checkbox fas {if $BIG_THUMB}fa-check-square{else}fa-square{/if}"></i>&nbsp;</span><input name="big_thumb" id="big_thumb" type="checkbox" value="1" {if $BIG_THUMB}checked="checked"{/if}>{'Double the size of the first thumbnail'|@translate}</label></li>
+    <li>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label><span class="gd-checkbox fas {if $BIG_THUMB_NOINPW}fa-check-square{else}fa-square{/if}">&nbsp;</span><input name="big_thumb_noinpw" id="big_thumb_noinpw" type="checkbox" value="1" {if $BIG_THUMB_NOINPW}checked="checked"{/if}>{'Block for Panoramic Photo Page'|@translate} (x2.2+)</label></li>
+    <li><label><span class="gd-checkbox fas {if $CACHE_BIG_THUMB}fa-check-square{else}fa-square{/if}">&nbsp;</span><input name="cache_big_thumb" id="cache_big_thumb" type="checkbox" value="1" {if $CACHE_BIG_THUMB}checked="checked"{/if}>{'Cache the big thumbnails (recommended)'|@translate}</label></li>
+    <li><label><span class="gd-checkbox fas {if $THUMB_ANIMATE}fa-check-square{else}fa-square{/if}">&nbsp;</span><input name="thumb_animate" id="thumb_animate" type="checkbox" value="1" {if $THUMB_ANIMATE}checked="checked"{/if}>{'Animate thumbnail on hover'|@translate}</label></li>
     <li>
       <select id="normalize_title" name="normalize_title" >
         <option {if $NORMALIZE_TITLE == 'off'}selected="selected"{/if} value="off">{'Do not Normalize (Default)'|@translate}</option>
@@ -48,7 +48,7 @@
       </select>
       <label for="normalize_title">{'Normalize Photo Title'|@translate}</label>
     </li>
-    <li><label><span class="graphicalCheckbox {if $NO_WORDWRAP}icon-check{else}icon-check-empty{/if}">&nbsp;</span><input name="no_wordwrap" id="no_wordwrap" type="checkbox" value="1" {if $NO_WORDWRAP}checked="checked"{/if}>{'Prevent word wrap'|@translate}</label></li>
+    <li><label><span class="gd-checkbox fas {if $NO_WORDWRAP}fa-check-square{else}fa-square{/if}">&nbsp;</span><input name="no_wordwrap" id="no_wordwrap" type="checkbox" value="1" {if $NO_WORDWRAP}checked="checked"{/if}>{'Prevent word wrap'|@translate}</label></li>
     <li>
       <select id="thumb_mode_album" name="thumb_mode_album" >
         <option {if $THUMB_MODE_ALBUM=="top"}selected="selected"{/if} value="top">{'Overlay Top'|@translate}</option>
@@ -122,12 +122,13 @@
 {if $CUSTOM_CSS=="yes"}
   {combine_css path="themes/default/js/plugins/colorbox/style2/colorbox.css"}
   {combine_css path=$GDTHEME_PATH|cat:"admin/css/styles.css"}
+  {combine_css path=$GDTHEME_PATH|cat:"css/all.min.css"}
   {combine_script id='jquery.colorbox' load='footer' require='jquery' path='themes/default/js/plugins/jquery.colorbox.min.js' }
   {combine_script id='greydragon.admin' load='footer' require='jquery' path=$GDTHEME_PATH|cat:"admin/js/admin.js" }
 {else}
 {html_head}{literal}
 <style type="text/css">
-  .graphicalCheckbox { display: none; }
+  .gd-checkbox { display: none; }
   #generate_cache p.buttons { margin-top: 0; }
   .content select { width: 20.4em !important; margin-right: 0.6em; }
 </style>
